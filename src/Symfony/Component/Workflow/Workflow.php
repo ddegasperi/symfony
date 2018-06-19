@@ -301,7 +301,7 @@ class Workflow implements WorkflowInterface
 
     private function enter($subject, Transition $transition, Marking $marking): void
     {
-        $places = $transition->getTos();
+        $places = $transition->getTos($subject);
 
         if (null !== $this->dispatcher) {
             $event = new Event($subject, $marking, $transition, $this);
